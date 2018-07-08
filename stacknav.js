@@ -9,7 +9,6 @@ import {
 import { StackNavigator } from  'react-navigation';
 import MainScreen from "./MainScreen";
 import App from  "./App";
-import homeApp from  "./stacknav";
 import gmapsDirections from "./gmapsDirections.js";
 const stackNav = StackNavigator({
     Main : {
