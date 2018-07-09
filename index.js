@@ -8,9 +8,11 @@ const drawernav = DrawerNavigator({
         screen: lns,
 
     }
+
 }, {
     contentComponent: SideMenu,
     drawerWidth: Dimensions.get('window').width - 120,
 });
+
 
 AppRegistry.registerComponent('testAPI5', () => drawernav );
