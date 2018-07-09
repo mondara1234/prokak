@@ -9,6 +9,7 @@ import {
 import { StackNavigator } from  'react-navigation';
 import MainScreen from "./MainScreen";
 import App from  "./App";
+import  Details from  "./DetailScreen";
 import gmapsDirections from "./gmapsDirections.js";
 const stackNav = StackNavigator({
     Main : {
@@ -22,11 +23,18 @@ const stackNav = StackNavigator({
         navigationOptions: ({navigation}) => ({
             title: "Detail",
         })
+
     },
     MyAPI: {
         screen: gmapsDirections,
         navigationOptions: ({navigation}) => ({
             title: "gmapsDirections",
+        })
+    },
+    Details: {
+        screen:  Details,
+        navigationOptions: ({navigation}) => ({
+            title: "Details",
         })
     },
 

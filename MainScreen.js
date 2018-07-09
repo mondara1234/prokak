@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Thumbnail,Item,
-    Input,Text,Image} from 'native-base';
+    Input,Text} from 'native-base';
 import {View,TouchableHighlight,ScrollView} from 'react-native';
 
-var SQLite = require('react-native-sqlite-storage')
 class MainScreen extends Component {
 
     constructor(props) {
@@ -62,6 +61,5 @@ class MainScreen extends Component {
         );
     }
 }
-const BASE_URL = 'http://192.168.1.5:8001';
 
 export default MainScreen;
