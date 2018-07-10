@@ -1,26 +1,21 @@
 import React, {Component} from 'react';
-import {
-    Text,
-    View,
-    StyleSheet
-} from 'react-native';
+import { Container, Content } from 'native-base';
+import CommonText from './CommonText';
+
 
 class DetailScreen extends Component {
     render () {
         return (
-            <View style={styles.container}>
-                <Text>{ this.props.navigation.state.params.Email }</Text>
-            </View>
+            <Container>
+                <Content>
+                    <CommonText
+                       // { this.props.navigation.state.params.Email }
+                        text={'This is a Dashboard page'}
+                    />
+                </Content>
+            </Container>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-});
 
 export default DetailScreen;

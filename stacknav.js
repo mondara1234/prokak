@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import {
-    Platform,
-    StyleSheet,
-    Text,
-    View, TouchableOpacity,Button
-} from 'react-native';
-
 import { StackNavigator } from  'react-navigation';
+import HeaderTitle from './HeaderTitle';
 import MainScreen from "./MainScreen";
 import App from  "./App";
 import  Details from  "./DetailScreen";
 import gmapsDirections from "./gmapsDirections.js";
 const stackNav = StackNavigator({
     Main : {
-        screen: MainScreen,
+        screen:  gmapsDirections,
         navigationOptions: ({navigation}) => ({
-            header: null,
-        })
+           // header: null,
+            headerTitle: <HeaderTitle  text={'Detil page'} />,
+            headerStyle: {
+                backgroundColor:'#76f7ff'
+
+            }
+
+        }),
     },
     MyApp: {
         screen: App,
@@ -32,12 +32,11 @@ const stackNav = StackNavigator({
         })
     },
     Details: {
-        screen:  Details,
+        screen: MainScreen,
         navigationOptions: ({navigation}) => ({
             title: "Details",
         })
     },
 
 });
-
 export default stackNav;

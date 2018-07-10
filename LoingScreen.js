@@ -22,7 +22,7 @@ export default class LoingScreen extends Component {
         const { UserPassword }  = this.state ;
 
 
-        fetch('https://reactnativecode.000webhostapp.com/User_Login.php', {
+        fetch('127.0.0.1:80/User_Login.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -3,9 +3,11 @@ import { AppRegistry, Dimensions } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
 import SideMenu from './SideMenu'
 import lns from './LoingScreen';
+import  stacknavv from  './stacknav';
+import showsql from './ShowStudentListActivity';
 const drawernav = DrawerNavigator({
     Item1: {
-        screen: lns,
+        screen: stacknavv,
 
     }
 
