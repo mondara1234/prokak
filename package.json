@@ -21,6 +21,7 @@
     "react-native-popup-dialog": "^0.14.48",
     "react-native-router-flux": "^3.38.0",
     "react-native-sqlite-storage": "^3.3.6",
+    "react-native-style-tachyons": "^3.7.0",
     "react-navigation": "^2.5.5",
     "redux": "^4.0.0"
   },
