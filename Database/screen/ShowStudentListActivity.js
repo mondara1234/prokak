@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {  StyleSheet,View, ListView, ActivityIndicator ,Platform} from 'react-native';
+import {  Text,StyleSheet,View, ListView, ActivityIndicator ,Platform} from 'react-native';
 
 export default class ShowStudentListActivity extends Component {
 
@@ -17,7 +17,7 @@ export default class ShowStudentListActivity extends Component {
 
     componentDidMount() {
 
-        return fetch('127.0.0.1/ShowAllStudentsList.php')
+        return fetch('http://192.168.1.30/My_SQL/ShowAllStudentsList.php')
             .then((response) => response.json())
             .then((responseJson) => {
                 let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -33,19 +33,6 @@ export default class ShowStudentListActivity extends Component {
             });
     }
 
-    GetStudentIDFunction=(id,name, email, password)=>{
-
-        this.props.navigation.navigate('Third', {
-
-            ID : id,
-            NAME : name,
-            EMail : email,
-            Password : password
-
-        });
-
-    }
-
     ListViewItemSeparator = () => {
         return (
             <View
@@ -58,7 +45,19 @@ export default class ShowStudentListActivity extends Component {
         );
     }
 
-    render() {
+    GetStudentIDFunction=(ID,name, password,email)=> {
+
+        this.props.navigation.navigate('DeleteDataActivity', {
+
+            ID: ID,
+            NAME: name,
+            PASSWORD: password,
+            EMAIL: email
+
+        });
+    }
+
+        render() {
         if (this.state.isLoading) {
             return (
                 <View style={{flex: 1, paddingTop: 20}}>
@@ -78,16 +77,14 @@ export default class ShowStudentListActivity extends Component {
                     renderSeparator= {this.ListViewItemSeparator}
 
                     renderRow={ (rowData) => <Text style={styles.rowViewContainer}
+                        onPress={this.GetStudentIDFunction.bind(
+                                this, rowData.ID,
+                                rowData.name,
+                                rowData.password,
+                                rowData.email
+                    )} >
 
-                                                   onPress={this.GetStudentIDFunction.bind(
-                                                       this, rowData.id,
-                                                       rowData.name,
-                                                       rowData.email,
-                                                       rowData.password,
-
-                                                   )} >
-
-                        {rowData.name}
+                    {rowData.name} ,   ,{rowData.password}
 
                     </Text> }
 
@@ -110,9 +107,7 @@ const styles = StyleSheet.create({
     },
 
     MainContainer_For_Show_StudentList_Activity :{
-
         flex:1,
-        paddingTop: (Platform.OS == 'ios') ? 20 : 0,
         marginLeft: 5,
         marginRight: 5
 

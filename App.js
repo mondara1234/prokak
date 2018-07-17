@@ -53,7 +53,7 @@ export default class App extends Component {
                     actions={[
                         <Text style={{width:'100%',fontSize: 20, textAlign: 'center',marginTop:40}}>_____________________________________________</Text>,
                         <DialogButton style={{fontSize:25 , alignItems:'center'}}
-                            text="ปิด"
+                            text= "Exit"
                             onPress={this.dismissScaleAnimationDialog}
                         />
                     ]}

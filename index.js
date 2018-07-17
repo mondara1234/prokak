@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { AppRegistry, Dimensions } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
 import SideMenu from './SideMenu'
-import lns from './LoingScreen';
-import  stacknavv from  './stacknav';
-import showsql from './ShowStudentListActivity';
+import stacknavv from  './stacknav';
+
 const drawernav = DrawerNavigator({
     Item1: {
         screen: stacknavv,

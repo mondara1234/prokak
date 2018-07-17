@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Thumbnail,Item,
+import { Container, Content, Header, Left, Body, Right, Button, Icon, Title, Thumbnail,Item,
     Input,Text} from 'native-base';
 import {View,TouchableHighlight,ScrollView} from 'react-native';
 
@@ -12,6 +12,7 @@ class MainScreen extends Component {
     render() {
         return (
             <Container style={{backgroundColor:'#fe2526' }}>
+                <Content>
                 <Header style={{backgroundColor:'#196F3D'}}>
                     <Left>
                         <Button transparent
@@ -26,7 +27,6 @@ class MainScreen extends Component {
                     <Right>
                     </Right>
                 </Header>
-                <ScrollView>
                     <View style={{flex:1}}>
                         <View style={{justifyContent:'center',flexDirection:'row',marginTop:30}}>
                             <Thumbnail
@@ -53,11 +53,9 @@ class MainScreen extends Component {
                                 <Text style={{fontSize:25,fontWeight:'500'}}>กดดิ</Text>
                             </TouchableHighlight>
                         </Item>
-
                     </View>
-                </ScrollView>
+                </Content>
             </Container>
-
         );
     }
 }

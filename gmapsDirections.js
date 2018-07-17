@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {StyleSheet,View,Button,Alert,Text} from 'react-native';
+import {StyleSheet,View,Button,Alert,Text,ScrollView} from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
 import MapView, { PROVIDER_GOOGLE,Marker  } from 'react-native-maps'
 import {GooglePlacesAutocomplete,} from 'react-native-google-places-autocomplete';
@@ -47,9 +47,6 @@ export default class gmapsDirections extends Component {
             this.setState({markePosition : initialRegion })
         })
     }watchID: ?number = null
-    componentWillUnmount(){
-        navigator.geolocation.clearWatch(this.watchID)
-    }
 
 
     handleGetDirections = () => {
@@ -87,6 +84,7 @@ export default class gmapsDirections extends Component {
     componentWillUnmount(){
 
         clearInterval(this.Clock);
+        navigator.geolocation.clearWatch(this.watchID)
 
     }
 
@@ -136,6 +134,7 @@ export default class gmapsDirections extends Component {
     render() {
 
         return (
+            <ScrollView>
             <View style={styles.container}>
                 <View style={{width: 400,height:300}}>
                     <MapView
@@ -215,6 +214,7 @@ export default class gmapsDirections extends Component {
                 </View>
                 <Button onPress={this.handleGetDirections} title="Get Directions" />
             </View>
+                </ScrollView>
         );
     }
 }
