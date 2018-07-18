@@ -2,7 +2,41 @@ import React, { Component } from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
 
 export default class Form extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            UserEmail: '',
+            UserPassword: ''
+        }
+    }
 
+    UserLoginFunction = () =>{
+        const { UserEmail }  = this.state ;
+        const { UserPassword }  = this.state ;
+
+        fetch('http://192.168.10.129/My_SQL/User_Login.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: UserEmail,
+                password: UserPassword
+            })
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                if(responseJson === 'Data Matched')
+                {
+                    this.props.navigation.navigate('Main')
+                }
+                else{
+                    Alert.alert(responseJson);
+                }
+            }).catch((error) => {
+            console.error(error);
+        });
+    }
 
     render(){
         return(
@@ -13,7 +47,6 @@ export default class Form extends Component {
                            placeholderTextColor = "#ffffff"
                            selectionColor="#fff"
                            keyboardType="email-address"
-                           onSubmitEditing={()=> this.password.focus()}
                            onChangeText={UserEmail =>this.setState({UserEmail})}
                 />
                 <TextInput style={styles.inputBox}
@@ -21,10 +54,11 @@ export default class Form extends Component {
                            placeholder="Password"
                            secureTextEntry={true}
                            placeholderTextColor = "#ffffff"
-                           ref={(input) => this.password = input}
                            onChangeText={UserPassword =>this.setState({UserPassword})}
                 />
-
+                <TouchableOpacity style={styles.button} onPress={this.UserLoginFunction}>
+                    <Text style={styles.buttonText} > {this.props.titleButton} </Text>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -32,7 +66,8 @@ export default class Form extends Component {
 
 const styles = StyleSheet.create({
     container : {
-        flexGrow: 1,
+        flex: 1,
+        marginTop: 65,
         justifyContent:'center',
         alignItems: 'center'
     },

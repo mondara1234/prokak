@@ -9,7 +9,7 @@ export default class Registration extends Component {
     {
         this.props.navigation.navigate('ShowListActivity');
     }
-    
+
     render() {
         return (
             <View style={styles.container}>
@@ -25,6 +25,7 @@ export default class Registration extends Component {
 
 const styles = StyleSheet.create({
     container : {
+        paddingBottom: 60,
         backgroundColor:'#455a64',
         flex: 1,
         alignItems:'center',

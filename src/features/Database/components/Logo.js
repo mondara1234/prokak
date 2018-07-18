@@ -20,13 +20,14 @@ export default class Logo extends Component {
 
 const styles = StyleSheet.create({
     container : {
-        flexGrow: 1,
-        justifyContent:'flex-end',
+        justifyContent:'center',
         alignItems: 'center'
     },
     logoText : {
         marginVertical: 15,
         fontSize:18,
-        color:'rgba(255, 255, 255, 0.7)'
+        color:'rgba(255, 255, 255, 0.7)',
+        justifyContent:'center',
+        alignItems: 'center'
     }
 });

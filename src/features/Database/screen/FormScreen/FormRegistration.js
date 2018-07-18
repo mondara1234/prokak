@@ -12,7 +12,7 @@ export default class FormRegistration extends Component {
     }
 
     InsertStudentRecordsToServer = () =>{
-        fetch('http://192.168.1.30/My_SQL/InsertStudentData.php', {
+        fetch('http://192.168.10.129/My_SQL/InsertData.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -33,11 +33,10 @@ export default class FormRegistration extends Component {
 
     render(){
         return(
-            <View style={styles.container}>
+            <View >
                 <TextInput style={styles.inputBox}
                            underlineColorAndroid='rgba(0,0,0,0)'
                            placeholder="UserName"
-                           secureTextEntry={true}
                            placeholderTextColor = "#ffffff"
                            onChangeText={ TextInputValue => this.setState({ TextInput_Name : TextInputValue }) }
                 />
@@ -45,9 +44,7 @@ export default class FormRegistration extends Component {
                            underlineColorAndroid='rgba(0,0,0,0)'
                            placeholder="Email"
                            placeholderTextColor = "#ffffff"
-                           selectionColor="#fff"
                            keyboardType="email-address"
-                           onSubmitEditing={()=> this.password.focus()}
                            onChangeText={ TextInputValue => this.setState({ TextInput_Password : TextInputValue }) }
                 />
                 <TextInput style={styles.inputBox}
@@ -55,7 +52,6 @@ export default class FormRegistration extends Component {
                            placeholder="Password"
                            secureTextEntry={true}
                            placeholderTextColor = "#ffffff"
-                           ref={(input) => this.password = input}
                            onChangeText={ TextInputValue => this.setState({ TextInput_Email : TextInputValue }) }
                 />
                 <TouchableOpacity style={styles.button} onPress={this.InsertStudentRecordsToServer}>
@@ -67,11 +63,6 @@ export default class FormRegistration extends Component {
 }
 
 const styles = StyleSheet.create({
-    container : {
-        flexGrow: 1,
-        justifyContent:'center',
-        alignItems: 'center'
-    },
     inputBox: {
         width:300,
         backgroundColor:'rgba(255, 255,255,0.2)',

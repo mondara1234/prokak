@@ -2,91 +2,90 @@ import React, { Component } from 'react';
 import { StackNavigator } from  'react-navigation';
 import HeaderTitle from './HeaderTitle';
 import MainScreen from "./MainScreen";
-import App from  "./App";
-import Details from  "./DetailScreen";
+import AppScreen from  "./App";
+import DetailScreen from  "./DetailScreen";
 import gmapsDirections from "./gmapsDirections.js";
 import MainSrceen from  "./MainScreen"
-import Registration from './Database/screen/Registration';
+import RegistrationScreen from './Database/screen/Registration';
 import LoingScreen from './Database/screen/LoingScreen';
-import ShowListActivity from "./Database/screen/ShowStudentListActivity";
-import DeleteDataActivity from "./Database/screen/DeleteData";
-import FormLoing from "./Database/screen/FormScreen/Form";
+import ShowListScreen from "./Database/screen/ShowStudentListActivity";
+import EditDataScreen from "./Database/screen/EditData";
 
 const stackNav = StackNavigator({
-    Loing : {
+    LoingActivity : {
         screen:  LoingScreen,
         navigationOptions: ({navigation}) => ({
-            // header: null,
-            headerTitle: <HeaderTitle  text={'Loing'} />,
+            header: null,
             headerStyle: {
-                backgroundColor:'#a8cccd'
+                backgroundColor:'#455a64'
             }
         }),
     },
-    Registration: {
-        screen:  Registration,
+    RegistrationActivity: {
+        screen:  RegistrationScreen,
         navigationOptions: ({navigation}) => ({
-            // header: null,
-            headerTitle: <HeaderTitle  text={'Registration'} />,
             headerStyle: {
-                backgroundColor:'#76f7ff'
+                backgroundColor:'#455a64'
             }
         }),
     },
     ShowListActivity: {
-        screen:  ShowListActivity,
+        screen: ShowListScreen,
         navigationOptions: ({navigation}) => ({
             // header: null,
             headerTitle: <HeaderTitle  text={'ShowListActivity'} />,
             headerStyle: {
-                backgroundColor:'#76f7ff'
+                backgroundColor:'#455a64'
             }
         }),
     },
-    DeleteDataActivity: {
-        screen:  DeleteDataActivity,
+    EditDataActivity: {
+        screen:  EditDataScreen,
         navigationOptions: ({navigation}) => ({
             // header: null,
             headerTitle: <HeaderTitle  text={'DeleteDataActivity'} />,
             headerStyle: {
-                backgroundColor:'#76f7ff'
+                backgroundColor:'#455a64'
             }
         }),
     },
-    Main: {
+    MainActivity: {
         screen:  MainSrceen,
         navigationOptions: ({navigation}) => ({
            // header: null,
             headerTitle: <HeaderTitle  text={'Home page'} />,
             headerStyle: {
-                backgroundColor:'#76f7ff'
+                backgroundColor:'#455a64'
             }
         }),
     },
-    MyApp: {
-        screen: App,
+    MyAppActivity: {
+        screen: AppScreen,
         navigationOptions: ({navigation}) => ({
-            title: "Detail"
+            headerTitle: <HeaderTitle  text={'AppScreen'} />,
+            headerStyle: {
+                backgroundColor:'#455a64'
+            }
         })
     },
-    MyAPI: {
+    MyAPIActivity: {
         screen: gmapsDirections,
         navigationOptions: ({navigation}) => ({
-            title: "gmapsDirections"
+            headerTitle: <HeaderTitle  text={'gmapsDirections'} />,
+            headerStyle: {
+                backgroundColor:'#455a64'
+            }
         })
     },
-    Details: {
-        screen: MainScreen,
+    DetailsActivity: {
+        screen: DetailScreen,
         navigationOptions: ({navigation}) => ({
-            title: "Details"
+            headerTitle: <HeaderTitle  text={'Details'} />,
+            headerStyle: {
+                backgroundColor:'#455a64'
+            }
         })
-    },
-    FormLoing: {
-        screen: FormLoing,
-        navigationOptions: ({navigation}) => ({
-            title: "FormLoing"
-        })
-    },
+    }
 
 });
 export default stackNav;

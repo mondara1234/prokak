@@ -17,7 +17,7 @@ export default class ShowStudentListActivity extends Component {
 
     componentDidMount() {
 
-        return fetch('http://192.168.1.30/My_SQL/ShowAllStudentsList.php')
+        return fetch('http://192.168.10.129/My_SQL/ShowAllDataList.php')
             .then((response) => response.json())
             .then((responseJson) => {
                 let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -47,8 +47,7 @@ export default class ShowStudentListActivity extends Component {
 
     GetStudentIDFunction=(ID,name, password,email)=> {
 
-        this.props.navigation.navigate('DeleteDataActivity', {
-
+        this.props.navigation.navigate('EditDataActivity', {
             ID: ID,
             NAME: name,
             PASSWORD: password,
@@ -84,7 +83,7 @@ export default class ShowStudentListActivity extends Component {
                                 rowData.email
                     )} >
 
-                    {rowData.name} ,   ,{rowData.password}
+                    {rowData.name} , {rowData.email}  ,{rowData.password}
 
                     </Text> }
 
