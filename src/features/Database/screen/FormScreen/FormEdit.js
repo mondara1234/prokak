@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react
 export default class FormEdit extends Component {
 
     DeleteStudentRecord = () =>{
-        fetch('http://192.168.10.129/My_SQL/DeleteData.php', {
+        fetch('192.168.1.30/My_SQL/DeleteData.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

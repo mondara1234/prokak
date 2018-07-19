@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import {StackNavigator} from 'react-navigation';
+import AppScreen from "../../../../../App";
 
 export default class Form extends Component {
     constructor(props) {
@@ -14,7 +16,7 @@ export default class Form extends Component {
         const { UserEmail }  = this.state ;
         const { UserPassword }  = this.state ;
 
-        fetch('http://192.168.10.129/My_SQL/User_Login.php', {
+        fetch('http://192.168.1.30/My_SQL/User_Login.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -28,7 +30,7 @@ export default class Form extends Component {
             .then((responseJson) => {
                 if(responseJson === 'Data Matched')
                 {
-                    this.props.navigation.navigate('Main')
+                    this.props.navigation.navigate('MyAppActivity')
                 }
                 else{
                     Alert.alert(responseJson);
@@ -38,7 +40,9 @@ export default class Form extends Component {
         });
     }
 
+
     render(){
+
         return(
             <View style={styles.container}>
                 <TextInput style={styles.inputBox}
@@ -95,3 +99,16 @@ const styles = StyleSheet.create({
     }
 
 });
+export const ModalNavigator =StackNavigator(
+    {
+        FormLogin: { screen: Form },
+        AppScreen: { screen: AppScreen },
+        navigationOptions: ({navigation}) => ({
+            headerTitle: <HeaderTitle  text={'AppScreen'} />,
+            headerStyle: {
+                backgroundColor:'#455a64'
+            }
+        })
+
+    },
+);

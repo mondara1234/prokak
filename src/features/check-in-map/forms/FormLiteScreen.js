@@ -16,7 +16,6 @@ class FormLiteScreen extends React.PureComponent {
 
     componentDidMount () {
        var url = 'http://www.json-generator.com/api/json/get/cfOmgHmYMO?indent=2'
-
         fetch(url)
             .then((response) => response.json())
             .then((responseJson) => {

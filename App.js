@@ -48,7 +48,7 @@ render() {
                         <TouchableHighlight
                             style={{height:50,width:80,backgroundColor:'#F4D03F',
                                 justifyContent:'center',flexDirection:'row',
-                                alignItems:'center',borderRadius:25}} onPress={() => this.props.navigation.navigate("MyAppActivity")}>
+                                alignItems:'center',borderRadius:25}} onPress={() => this.props.navigation.navigate("DetailsActivity")}>
                             <Text style={{fontSize:25,fontWeight:'500'}}>กดดิ</Text>
                         </TouchableHighlight>
                     </Item>

@@ -1,19 +1,45 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, ListView} from 'react-native';
 
 export default class FormUpdate extends Component {
     constructor(props) {
         super(props)
         this.state = {
             TextInput_ID: this.props.GetInput_ID,
-            TextInput_Name: this.props.GetInput_Name,
-            TextInput_Password: this.props.GetInput_Password,
-            TextInput_Email: this.props.GetInput_Email,
+            isLoading: true,
+            dataSourceName: '',
+            dataSourceEmail: '',
+            dataSourcePassword: '',
         }
     }
 
+    componentDidMount() {
+
+        fetch('http://192.168.1.30/My_SQL/ShowOneDataList.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: this.state.TextInput_ID
+            })
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                    this.setState({
+                        isLoading: false,
+                        dataSourceName: responseJson[0].name,
+                        dataSourceEmail: responseJson[0].email,
+                        dataSourcePassword: responseJson[0].password,
+                    }, function () {
+                    });
+            }).catch((error) => {
+            console.error(error);
+        });
+    }
+
     UpdateStudentRecord = () =>{
-        fetch('http://192.168.10.129/My_SQL/UpdateData.php', {
+        fetch('http://192.168.1.30/My_SQL/UpdateData.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -21,9 +47,9 @@ export default class FormUpdate extends Component {
             },
             body: JSON.stringify({
                 id : this.state.TextInput_ID,
-                name : this.state.TextInput_Name,
-                password : this.state.TextInput_Password,
-                email: this.state.TextInput_Email
+                name : this.state.dataSourceName,
+                password : this.state.dataSourcePassword,
+                email: this.state.dataSourceEmail
             })
         }).then((response) => response.json())
             .then((responseJson) => {
@@ -31,36 +57,39 @@ export default class FormUpdate extends Component {
             }).catch((error) => {
             console.error(error);
         });
+
     }
 
 
     render(){
         return(
+
             <View style={styles.container}>
                 <TextInput
                     placeholder="Name Shows Here"
-                    value={this.state.TextInput_Name}
-                    onChangeText={ TextInputValue => this.setState({ TextInput_Name : TextInputValue }) }
+                    value={this.state.dataSourceName}
+                    onChangeText={ TextInputValue => this.setState({ dataSourceName : TextInputValue }) }
                     underlineColorAndroid='rgba(0,0,0,0)'
                     placeholderTextColor = "#ffffff"
                     selectionColor="#fff"
                     style={styles.inputBox}
                 />
                 <TextInput
-                    value={this.state.TextInput_Email}
+                    value={this.state.dataSourceEmail }
                     underlineColorAndroid='rgba(0,0,0,0)'
                     placeholderTextColor = "#ffffff"
                     selectionColor="#fff"
                     placeholder="Email Shows Here"
-                    onChangeText={ TextInputValue => this.setState({ TextInput_Email : TextInputValue }) }
+                    onChangeText={ TextInputValue => this.setState({ dataSourceEmail : TextInputValue }) }
                     style={styles.inputBox}
                 />
                 <TextInput
-                    value={this.state.TextInput_Password}
+                    value={this.state.dataSourcePassword}
                     underlineColorAndroid='rgba(0,0,0,0)'
                     placeholderTextColor = "#ffffff"
                     selectionColor="#fff"
-                    onChangeText={ TextInputValue => this.setState({ TextInput_Password : TextInputValue }) }
+                    placeholder="Password Shows Here"
+                    onChangeText={ TextInputValue => this.setState({ dataSourcePassword : TextInputValue }) }
                     style={styles.inputBox}
                 />
                 <TouchableOpacity style={styles.button} onPress={this.UpdateStudentRecord} >

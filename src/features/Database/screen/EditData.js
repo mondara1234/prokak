@@ -8,19 +8,13 @@ export default class DeleteData extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            TextInput_ID: '',
-            TextInput_Name: '',
-            TextInput_Password: '',
-            TextInput_Email: '',
+            TextInput_ID: ''
         }
     }
 
     componentDidMount(){
         this.setState({
-            TextInput_ID : this.props.navigation.state.params.ID,
-            TextInput_Name: this.props.navigation.state.params.NAME,
-            TextInput_Password: this.props.navigation.state.params.PASSWORD,
-            TextInput_Email: this.props.navigation.state.params.EMAIL,
+            TextInput_ID : this.props.navigation.state.params.ID
         })
     }
 
@@ -28,11 +22,7 @@ export default class DeleteData extends Component {
         return (
             <View style={styles.container}>
                 <Logo  Title='Edit Data'/>
-                <FormUpdate
-                    GetInput_ID = {this.props.navigation.state.params.ID}
-                    GetInput_Name = {this.props.navigation.state.params.NAME}
-                    GetInput_Password = {this.props.navigation.state.params.PASSWORD}
-                    GetInput_Email = {this.props.navigation.state.params.EMAIL}/>
+                <FormUpdate GetInput_ID = {this.props.navigation.state.params.ID}/>
                 <FormEdit GetInput_ID = {this.props.navigation.state.params.ID} />
             </View>
         );

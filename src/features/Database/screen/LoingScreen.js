@@ -13,7 +13,7 @@ export default class LoingScreen extends Component {
         return (
             <View style={styles.container}>
                 <Logo Title="Welcome to My app."/>
-                <Form titleButton="Loing" />
+                <Form titleButton="Login" />
                 <View style={styles.signupTextCont}>
                     <Text style={styles.signupText}>Don't have an account yet?</Text>
                     <TouchableOpacity onPress={this.RegistrationFunction}>

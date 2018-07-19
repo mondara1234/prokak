@@ -12,7 +12,7 @@ export default class FormRegistration extends Component {
     }
 
     InsertStudentRecordsToServer = () =>{
-        fetch('http://192.168.10.129/My_SQL/InsertData.php', {
+        fetch('http://192.168.1.30/My_SQL/InsertData.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
