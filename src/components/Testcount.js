@@ -15,6 +15,7 @@ class Testcount extends Component{
     onChengeText(number){
         const count = parseInt(number);
         this.props.counterSet(count);
+        this.setState({count});
     }
 
     render(){
