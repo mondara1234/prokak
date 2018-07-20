@@ -1,0 +1,20 @@
+import React from 'react';
+import {Provider} from 'react-redux';
+import { createStore } from "redux";
+import  AllReducer from './reducers/AllReducers';
+import Testcount from  './Testcount';
+
+const store = createStore(AllReducer);
+
+class StoreData extends React.Component{
+
+    render() {
+        return (
+            <Provider store={store}>
+                <Testcount/>
+            </Provider>
+        )
+    }
+}
+
+export default  StoreData;

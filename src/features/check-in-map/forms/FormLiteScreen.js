@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, ScrollView, StyleSheet, FlatList,ActivityIndicator} from 'react-native';
 import { Button, Item, Input, Icon, List,H3,ListItem, Left, Thumbnail, Body  } from 'native-base';
 import  CommonText from '../components/CommonText';
+import  State from '../../../components/StoreData';
 
 
 
