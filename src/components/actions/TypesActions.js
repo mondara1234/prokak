@@ -1,4 +1,5 @@
-export const SET_COUNTER = '_COUNTER';
+export const SET_COUNTER = 'SET_COUNTER';
 export const CLEAR_COUNTER = 'CLEAR_COUNTER';
 export const INCRENENT_COUNTER = 'INCRENENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+

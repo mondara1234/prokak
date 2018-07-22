@@ -1,4 +1,4 @@
-import {SET_COUNTER,CLEAR_COUNTER,INCRENENT_COUNTER,DECREMENT_COUNTER} from '../actions/TypesActions';
+import {SET_COUNTER,CLEAR_COUNTER,INCRENENT_COUNTER,DECREMENT_COUNTER } from '../actions/TypesActions';
 
 export default (state = 0, action) => {
     switch (action.type) {

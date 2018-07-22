@@ -1,4 +1,4 @@
-import {SET_COUNTER,CLEAR_COUNTER,INCRENENT_COUNTER,DECREMENT_COUNTER} from './TypesActions';
+import {SET_COUNTER,CLEAR_COUNTER,INCRENENT_COUNTER,DECREMENT_COUNTER } from './TypesActions';
 
 export const counterIncrement =()=>{
     return{
@@ -24,3 +24,4 @@ export const counterSet =(reaceivednumber)=>{
         payload: reaceivednumber
     };
 }
+

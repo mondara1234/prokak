@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import { createStore } from "redux";
-import  AllReducer from './reducers/AllReducers';
+import  AllReducer from './reducers';
 import Testcount from  './Testcount';
 
 const store = createStore(AllReducer);
