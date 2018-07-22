@@ -7,8 +7,8 @@ const HeaderTitle = (props) => {
 
 HeaderTitle.defaultProps = {
     text: '',
-    color: '#ff2d12',
-    size : 40
+    color: '#f3f3f3',
+    size : 20
 };
 
 export default HeaderTitle;
