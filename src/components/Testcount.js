@@ -3,7 +3,6 @@ import { StyleSheet,Text,TextInput,View,Button} from 'react-native';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {counterIncrement, counterDecrement, counterClear, counterSet,countermodara} from './actions';
-//import {store} from "./StoreData";
 
 class Testcount extends Component{
     constructor(props){
@@ -16,7 +15,7 @@ class Testcount extends Component{
 
     onChengeText(number){
         const count = parseInt(number);
-        this.props.counterSet(count);
+        this.props.SET_COUNTER(count);
         this.setState({count});
     }
 
@@ -27,7 +26,7 @@ class Testcount extends Component{
         const data1 = this.props.server.serverdataSource[1];
         return(
             <View style={container}>
-                <Button  onPress={this.props.countermodara} title="ShowData"/>
+                <Button  onPress={()=>this.props.ADDDATA_COUNTER('kakzadsr')} title="ShowData"/>
                 <Text style={welcome}>array[0]: {data}</Text>
                 <Text style={welcome}>array[1]: {data1}</Text>
                 <TextInput style={{width: 80, height:40, borderWidth:1}}
@@ -35,11 +34,11 @@ class Testcount extends Component{
                            value={this.state.count.toString()}
                 />
                 <View style={countViewStyle}>
-                    <Button  onPress={this.props.counterIncrement} title="+"/>
+                    <Button  onPress={this.props.INCRENENT_COUNTER} title="+"/>
                     <Text style={[welcome,{width: 80}]}> {this.props.count}</Text>
-                    <Button  onPress={this.props.counterDecrement} title="-"/>
+                    <Button  onPress={this.props.DECREMENT_COUNTER} title="-"/>
                 </View>
-                <Button  onPress={this.props.counterClear} title="Clear"/>
+                <Button  onPress={this.props.CLEAR_COUNTER} title="Clear"/>
             </View>
 
 
@@ -75,5 +74,14 @@ function mapStateToProps(state) {
         server: state.serverreducer
     };
 }
-export default connect(mapStateToProps, {counterIncrement,counterSet,counterDecrement,counterClear,countermodara})
-(Testcount);
+
+export default connect(mapStateToProps,
+    (dispatch) => ({
+        ADDDATA_COUNTER: bindActionCreators(countermodara, dispatch),
+        NCRENENT_COUNTER: bindActionCreators(counterIncrement, dispatch),
+        INCRENENT_COUNTER: bindActionCreators(counterIncrement, dispatch),
+        DECREMENT_COUNTER: bindActionCreators(counterDecrement, dispatch),
+        CLEAR_COUNTER: bindActionCreators(counterClear, dispatch),
+        SET_COUNTER: bindActionCreators(counterSet, dispatch)
+    })
+)(Testcount);

@@ -13,15 +13,15 @@
 }
 var serverdata=[this.props.dataSource];*/
 
-import {CLEAR_COUNTER} from "../actions/TypesActions";
+import {CLEAR_COUNTER, ADDDATA_COUNTER} from "../actions/TypesActions";
 
 const initialState={
-    serverdataSource:['mondara'],
+    serverdataSource:[],
     value:0
 };
 export default (state=initialState,action)=>{
     switch (action.type){
-        case 'MONDARA':
+        case ADDDATA_COUNTER:
             return state={//ใช้สำหรับมีข้อมูลเยอะ สามารเลิกค่าที่ต้องเปลี่ยนได้
                 ...state,
                  serverdataSource : [...state.serverdataSource,action.dataarray]

@@ -12,7 +12,7 @@ export default class LoingScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Logo Title="Welcome to My app."/>
+                <Logo Title="สวัสดีหมูบ้า ."/>
                 <Form titleButton="Login" />
                 <View style={styles.signupTextCont}>
                     <Text style={styles.signupText}>Don't have an account yet?</Text>

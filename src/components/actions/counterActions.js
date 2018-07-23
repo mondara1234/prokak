@@ -1,4 +1,4 @@
-import {SET_COUNTER,CLEAR_COUNTER,INCRENENT_COUNTER,DECREMENT_COUNTER } from './TypesActions';
+import {SET_COUNTER,CLEAR_COUNTER,INCRENENT_COUNTER,DECREMENT_COUNTER,ADDDATA_COUNTER } from './TypesActions';
 
 export const counterIncrement =()=>{
     return{
@@ -25,10 +25,10 @@ export const counterSet =(reaceivednumber)=>{
     };
 }
 
-export const countermodara =()=>{
+export const countermodara =(ADDdata)=>{
     return{
-        type: 'MONDARA',
-        dataarray: 'kakzadsr'
+        type: ADDDATA_COUNTER,
+        dataarray: ADDdata
     };
 }
 

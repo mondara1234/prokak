@@ -21,5 +21,5 @@ export default  StoreData;
 
 store.dispatch({
     type: 'MONDARA',
-    dataarray: 'kakzadsr'
-})
+    dataarray: 'mondara'
+});
