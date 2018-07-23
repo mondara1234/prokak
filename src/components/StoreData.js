@@ -18,3 +18,8 @@ class StoreData extends React.Component{
 }
 
 export default  StoreData;
+
+store.dispatch({
+    type: 'MONDARA',
+    dataarray: 'kakzadsr'
+})
