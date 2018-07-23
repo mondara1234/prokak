@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
-import {AppRegistry, StyleSheet,Text,TextInput,View,Button} from 'react-native';
+import { StyleSheet,Text,TextInput,View,Button} from 'react-native';
 import {connect} from 'react-redux';
-import {counterIncrement, counterDecrement, counterClear, counterSet} from './actions';
+import { bindActionCreators } from 'redux';
+import {counterIncrement, counterDecrement, counterClear, counterSet,countermodara} from './actions';
 //import {store} from "./StoreData";
 
 class Testcount extends Component{
@@ -18,21 +19,17 @@ class Testcount extends Component{
         this.props.counterSet(count);
         this.setState({count});
     }
- counterdata = () => {
-        store.dispatch({
-            type: 'ADD',
-            dataarray: 'kakzadsr'
-                //store.getState([2])
-        })
-    }
 
-    render(){
+        render(){
         console.log(this.props);
         const {container, countViewStyle, welcome, instructions} = styles;
+        const data = this.props.server.serverdataSource[0];
+        const data1 = this.props.server.serverdataSource[1];
         return(
             <View style={container}>
-                <Button  onPress={this.counterdata} title="ShowData"/>
-                <Text style={welcome}> {this.props.server.serverdataSource}</Text>
+                <Button  onPress={this.props.countermodara} title="ShowData"/>
+                <Text style={welcome}>array[0]: {data}</Text>
+                <Text style={welcome}>array[1]: {data1}</Text>
                 <TextInput style={{width: 80, height:40, borderWidth:1}}
                            onChangeText={this.onChengeText}
                            value={this.state.count.toString()}
@@ -78,12 +75,5 @@ function mapStateToProps(state) {
         server: state.serverreducer
     };
 }
-
-
-store.dispatch({
-    type: 'ADD',
-    dataarray: 'kakzadsr'
-    //store.getState([2])
-})
-
-export default connect(mapStateToProps,{counterIncrement,counterSet,counterDecrement,counterClear})(Testcount);
+export default connect(mapStateToProps, {counterIncrement,counterSet,counterDecrement,counterClear,countermodara})
+(Testcount);

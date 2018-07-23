@@ -25,3 +25,10 @@ export const counterSet =(reaceivednumber)=>{
     };
 }
 
+export const countermodara =()=>{
+    return{
+        type: 'MONDARA',
+        dataarray: 'kakzadsr'
+    };
+}
+
