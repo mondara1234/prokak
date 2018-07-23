@@ -1,103 +1,140 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {H1} from 'native-base';
+import {View, TextInput, Text, StyleSheet} from 'react-native';
+import {Container, Content, Button, Header, Picker} from 'native-base';
+//import {Icon} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 class testword extends React.PureComponent {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state ={
-            time: '' ,
-            dates: '',
+        this.state = {
+            dataSourcedate: '',
+            dataSourceTimeIn: '',
+            dataSourceTimeOut: '',
         }
     }
-
-    componentDidMount() {
-        this.Clock = setInterval( () => this.GetTime(), 1000 );
-    }
-
-    componentWillUnmount(){
-        clearInterval(this.Clock);
-    }
-
-    GetTime() {
-        var date, hour, minutes, seconds, day, myday, mydate, month, mymonth, fullTime, fulldate;
-
-        date    = new Date();
-        hour    = date.getHours();
-        minutes = date.getMinutes();
-        seconds = date.getSeconds();
-        day     = date.getDay() ;
-        mydate  = date.getDate() ;
-        month   = date.getMonth()+1;
-
-        if(minutes < 10)
-        { minutes = '0' + minutes.toString();}
-        if(seconds < 10)
-        { seconds = '0' + seconds.toString();}
-        if(mydate  < 10)
-        {     day = '0' + day.toString();}
-
-        if(day == '1'){
-            myday = 'จันทร์'
-        }else if (day == '2'){
-            myday = 'อังคาร'
-        }else if (day == '3'){
-            myday = 'พุธ'
-        }else if (day == '4'){
-            myday = 'พฤหัสบดี'
-        }else if (day == '5'){
-            myday = 'ศุกร์'
-        }else if (day == '6'){
-            myday = 'เสาร์'
-        }else {
-            myday = 'อาทิตย์'
-        }
-
-        if(month == '1'){
-            mymonth = 'ม.ค'
-        }else if (month == '2'){
-            mymonth = 'ก.พ'
-        }else if (month == '3'){
-            mymonth = 'มี.ค'
-        }else if (month == '4'){
-            mymonth = 'เม.ย'
-        }else if (month == '5'){
-            mymonth = 'พ.ค'
-        }else if (month == '6'){
-            mymonth = 'มิ.ย'
-        } else  if(month == '7'){
-            mymonth = 'ก.ค'
-        }else if (month == '8'){
-            mymonth = 'สิ.ย'
-        }else if (month == '9'){
-            mymonth = 'ก.ย'
-        }else if (month == '10'){
-            mymonth = 'ตุ.ค'
-        }else if (month == '11'){
-            mymonth = 'พ.ย'
-        }else {
-            mymonth = 'ธ.ค'
-        }
-
-        fulldate = 'วัน' + '' + myday.toString() + ' ' + mydate.toString() + ' ' + mymonth.toString();
-        fullTime = hour.toString() + ':' + minutes.toString() + ':' + seconds.toString();
-
-        this.setState({
-            dates: fulldate,
-            time: fullTime
-        });
-    }
-
     render() {
         return (
-            <View>
-
-                <H1 >{this.state.dates}</>
-                <H1 style={{textAlign:'center'}}> {this.state.time} </H1>
-
-            </View>
+            <Container style={styles.container}>
+                <Content>
+                    <Header style={{alignItems: 'center',backgroundColor:'#fff', height:120 , borderBottomWidth:1}}>
+                        <Text style={[styles.buttonText,{fontSize:36, color:'#070707',}]}> เพิ่มบันทึกด้วยตัวเอง </Text>
+                    </Header>
+                    <Picker
+                        mode="dropdown"
+                        style={{ width: undefined }}
+                        selectedValue={this.state.selected}
+                    >
+                        <Picker.Item label="รหัสคิวอาร์" value="key0" />
+                        <Picker.Item label="ATM Card" value="key1" />
+                        <Picker.Item label="Debit Card" value="key2" />
+                        <Picker.Item label="Credit Card" value="key3" />
+                        <Picker.Item label="Net Banking" value="key4" />
+                    </Picker>
+                    <Picker
+                        mode="dropdown"
+                        style={{ width: undefined }}
+                        selectedValue={this.state.selected}
+                    >
+                        <Picker.Item label="BANANA IT @ CENTRAL PLAZA" value="key0" />
+                        <Picker.Item label="ATM Card" value="key1" />
+                        <Picker.Item label="Debit Card" value="key2" />
+                        <Picker.Item label="Credit Card" value="key3" />
+                        <Picker.Item label="Net Banking" value="key4" />
+                    </Picker>
+                    <View style={styles.containerView}>
+                        <Icon size={30} name='calendar'/>
+                        <TextInput
+                            value={this.state.dataSourcedate}
+                            underlineColorAndroid='rgba(0,0,0,0)'
+                            placeholderTextColor = "#070707"
+                            selectionColor="#fff"
+                            placeholder="วัน/เดือน/ปี"
+                            borderBottomWidth={1}
+                            style={styles.inputBox}
+                        />
+                    </View>
+                    <View style={styles.containerView}>
+                        <Icon size={30} name='clock-o'/>
+                        <TextInput
+                            value={this.state.dataSourceTimeIn}
+                            underlineColorAndroid='rgba(0,0,0,0)'
+                            placeholderTextColor = "#070707"
+                            selectionColor="#fff"
+                            placeholder="เวลาเข้า"
+                            borderBottomWidth={1}
+                            style={styles.inputBox}
+                        />
+                    </View>
+                    <View style={styles.containerView}>
+                        <Icon size={30} name='clock-o'/>
+                        <TextInput
+                            value={this.state.dataSourceTimeOut}
+                            underlineColorAndroid='rgba(0,0,0,0)'
+                            placeholderTextColor = "#070707"
+                            selectionColor="#fff"
+                            placeholder="เวลาออก"
+                            borderBottomWidth={1}
+                            style={styles.inputBox}
+                        />
+                    </View>
+                    <View style={styles.containerView}>
+                        <Icon size={30} name='sticky-note-o'/>
+                        <TextInput
+                            underlineColorAndroid='rgba(0,0,0,0)'
+                            placeholderTextColor = "#070707"
+                            selectionColor="#fff"
+                            placeholder="กรุณากรอกเหตุผล"
+                            borderBottomWidth={1}
+                            style={styles.inputBox}
+                        />
+                    </View>
+                    <Text style={[styles.buttonText,{color:'#070707',}]}>
+                        *โปรตรวจสอบข้อมูลการลาก่อนทำการกดบันทึก
+                    </Text>
+                </Content>
+                    <Button full style={styles.button} onPress={this.UpdateStudentRecord} >
+                        <Text style={styles.buttonText}> UPDATE STUDENT RECORD </Text>
+                    </Button>
+            </Container>
         )
     }
 };
+
+const styles = StyleSheet.create({
+    container : {
+        flex: 1,
+        justifyContent:'center',
+        alignItems: 'center',
+        backgroundColor:'#fff'
+    },
+    containerView : {
+        flex: 1,
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems: 'center',
+        backgroundColor:'#fff'
+    },
+    inputBox: {
+        width:300,
+        backgroundColor:'rgba(255, 255,255,0.2)',
+        paddingHorizontal:16,
+        fontSize:16,
+        color:'#ffffff',
+        marginVertical: 10
+    },
+    button: {
+        height: 80,
+        backgroundColor:'#1c313a',
+        marginVertical: 10,
+        paddingVertical: 13
+    },
+    buttonText: {
+        fontSize:16,
+        fontWeight:'500',
+        color:'#ffffff',
+        textAlign:'center'
+    }
+});
 
 export default testword;
