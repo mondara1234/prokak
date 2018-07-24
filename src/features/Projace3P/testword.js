@@ -1,24 +1,25 @@
 import React from 'react';
 import {View, TextInput, Text, StyleSheet} from 'react-native';
 import {Container, Content, Button, Header, Picker} from 'native-base';
-//import {Icon} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import HeaderTitle from '../../common/HeaderTitle';
 
 class testword extends React.PureComponent {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             dataSourcedate: '',
             dataSourceTimeIn: '',
             dataSourceTimeOut: '',
         }
     }
+
     render() {
         return (
             <Container style={styles.container}>
                 <Content>
                     <Header style={{alignItems: 'center',backgroundColor:'#fff', height:120 , borderBottomWidth:1}}>
-                        <Text style={[styles.buttonText,{fontSize:36, color:'#070707',}]}> เพิ่มบันทึกด้วยตัวเอง </Text>
+                        <Text style={[styles.buttonText,{fontSize:36, color:'#070707',}]}> {'เพิ่มบันทึกด้วยตัวเอง'} </Text>
                     </Header>
                     <Picker
                         mode="dropdown"
@@ -90,23 +91,28 @@ class testword extends React.PureComponent {
                         />
                     </View>
                     <Text style={[styles.buttonText,{color:'#070707',}]}>
-                        *โปรตรวจสอบข้อมูลการลาก่อนทำการกดบันทึก
+                        {'*โปรตรวจสอบข้อมูลการลาก่อนทำการกดบันทึก'}
                     </Text>
                 </Content>
                     <Button full style={styles.button} onPress={this.UpdateStudentRecord} >
-                        <Text style={styles.buttonText}> UPDATE STUDENT RECORD </Text>
+                        <Text style={styles.buttonText}> {'UPDATE STUDENT RECORD'}</Text>
                     </Button>
             </Container>
         )
     }
-};
+}
+
+testword.navigationOptions = ({
+    headerTitle: <HeaderTitle text={'กลับหน้าแรกเพิ่มบันทึกแก้ไขเวลา'} />
+});
 
 const styles = StyleSheet.create({
     container : {
         flex: 1,
         justifyContent:'center',
         alignItems: 'center',
-        backgroundColor:'#fff'
+        backgroundColor:'#fff',
+        marginHorizontal:10
     },
     containerView : {
         flex: 1,

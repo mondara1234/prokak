@@ -3,7 +3,7 @@ import { AppRegistry, Dimensions } from 'react-native';
 import { DrawerNavigator } from 'react-navigation';
 import SideMenu from './src/common/SideMenu'
 import stacknavv from  './src/common/stacknav';
-import testword from  './src/features/testword';
+import testword from './src/features/Projace3P/DetailTime';
 import StoreData from  './src/components/StoreData';
 
 const drawernav = DrawerNavigator({
