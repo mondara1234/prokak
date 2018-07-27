@@ -4,11 +4,11 @@ import { DrawerNavigator } from 'react-navigation';
 import SideMenu from './src/common/SideMenu'
 import stacknavv from  './src/common/stacknav';
 import testword from './src/features/Projace3P/DetailTime';
-import StoreData from  './src/components/StoreData';
+import StoreData from  './src/features/testCard';
 
 const drawernav = DrawerNavigator({
     Item1: {
-        screen: testword,
+        screen: StoreData,
 
     }
 

@@ -25,29 +25,46 @@ export default class ShowStudentListActivity extends Component {
             });
     }
 
-    _renderItem = ({item,index}) => {
+    // _renderItem = ({item,index}) => {
+    //     return (
+    //         <View style={{flex: 1 ,width: '100%', backgroundColor: index % 2 == 0 ? "#8ef7ff" : "#ff78f4"}}>
+    //             <ListItem thumbnail onPress={this.GetStudentIDFunction.bind(this, item.ID)}>
+    //                 <Left>
+    //                     <Thumbnail source={{uri: item.name}}  style={{ width: 60, height: 60, margin: 5}} />
+    //                 </Left>
+    //                 <Body>
+    //                 <H3 style={{fontSize: 20, color: '#020202', marginBottom: 5}}>{item.email} </H3>
+    //                 <Text style={{ fontSize: 16, color: '#292929',}}> {item.password} </Text>
+    //                 </Body>
+    //             </ListItem>
+    //         </View>
+    //     )
+    // };
+
+    _renderItem = ({item, index}) => {
+        let range = `${item._distance}`;
+        let rangeLength = range.length;
+        let rangeNumber = rangeLength < 4 ? range : range/1000;
+        let rangeUnit = rangeLength < 4 ? 'm' : 'km';
+        let checkType = this.props.navigation.state.params === 'check-in' ? CHECK_IN : CHECK_OUT;
+        let checkLength = rangeNumber <= 4 ? 'true' : 'false';
+        console.log(index);
         return (
-            <View style={{flex: 1 ,width: '100%', backgroundColor: index % 2 == 0 ? "#8ef7ff" : "#ff78f4"}}>
-                <ListItem thumbnail onPress={this.GetStudentIDFunction.bind(this, item.ID)}>
-                    <Left>
-                        <Thumbnail source={{uri: item.name}}  style={{ width: 60, height: 60, margin: 5}} />
-                    </Left>
-                    <Body>
-                    <H3 style={{fontSize: 20, color: '#020202', marginBottom: 5}}>{item.email} </H3>
-                    <Text style={{ fontSize: 16, color: '#292929',}}> {item.password} </Text>
-                    </Body>
-                </ListItem>
-            </View>
+            <Renderitem
+                navigate={this.props.navigation.navigate}
+                latitude={this.state.latitude}
+                longitude={this.state.longitude}
+                index={index}
+                checkType={checkType}
+                item={item}
+                itemImage={item._links.image.href}
+                itemName={item.name}
+                rangeNumber={rangeNumber}
+                rangeUnit={rangeUnit}
+                checkLength={checkLength}
+            />
         )
     };
-
-    renderSeparator=() =>{
-        return(
-            <View
-                style = {{height: 1 , width: '100%', backgroundColor: '#080808'}}>
-            </View>
-        )
-    }
 
     GetStudentIDFunction=(ID)=> {
         this.props.navigation.navigate('EditDataActivity', {
@@ -76,7 +93,6 @@ export default class ShowStudentListActivity extends Component {
                     data={this.state.dataSource}
                     renderItem={this._renderItem}
                     keyExtractor={(item, index) => index}
-                    ItemSeparatorComponent={this.renderSeparator}
                 />
         </View>
         );
