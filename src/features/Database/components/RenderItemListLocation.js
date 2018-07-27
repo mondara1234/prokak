@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Image, Alert} from "react-native";
 import { Card, CardItem, Body, Right } from 'native-base';
-import CommonText from '../../../common/CommonText';
+import CommonText from '../../common/components/CommonText';
 
 const RenderItemListLocation = (props) => {
     let dii = props.checkNamber;

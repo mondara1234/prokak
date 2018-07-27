@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {H1} from 'native-base';
-import  CommonText from '../components/CommonText';
+import  CommonText from '../../common/components/CommonText';
 
 class FormDateScreen extends React.PureComponent {
     constructor(props){

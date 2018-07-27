@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {StyleSheet, View,Image} from 'react-native';
 import { Container, Content, Button, Text } from 'native-base';
 import PopupDialog, {DialogTitle, DialogButton, ScaleAnimation} from 'react-native-popup-dialog';
-import CommonText from '../common/CommonText';
+import CommonText from './common/components/CommonText';
 
 class DetailScreen extends Component {
 state = {
@@ -26,11 +26,11 @@ render() {
             />
             <View style={styles.container}>
                 <Button style={styles.ins}>
-                    <Image style={styles.containerimg} source={require('../../pulic/assets/image/icon.png')}/>
+                    <Image style={styles.containerimg} source={require('../../pulic/assets/images/icon.png')}/>
                     <Text style={styles.fontstyle}>เวลาเข้า</Text>
                 </Button>
                 <Button style={styles.ins} onPress={this.showScaleAnimationDialog}>
-                    <Image style={styles.containerimg} source={require('../../pulic/assets/image/icon.png')}/>
+                    <Image style={styles.containerimg} source={require('../../pulic/assets/images/icon.png')}/>
                     <Text style={styles.fontstyle}>เวลาออก</Text>
                 </Button>
             </View>

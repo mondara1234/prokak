@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput, Text, StyleSheet } from 'react-native';
 import { Container, Content, Button, Header, Picker } from 'native-base';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
-import HeaderTitle from '../../common/HeaderTitle';
+import HeaderTitle from '../common/components/HeaderTitle';
 
 class DetailTime extends React.PureComponent {
     constructor(props) {

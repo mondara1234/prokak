@@ -13,7 +13,7 @@ export default class Registration extends Component {
         return (
             <View style={styles.container}>
                 <Image  style={{width:120, height: 120}}
-                        source={require('../../../../pulic/assets/image/user.png')}/>
+                        source={require('../../../../pulic/assets/images/user.png')}/>
                 <Form nameRegistration="Registration" />
                 <TouchableOpacity style={styles.button} onPress={this.GoTo_Show_StudentList_Activity_Function}>
                     <Text style={styles.buttonText} >ShowAllData</Text>
