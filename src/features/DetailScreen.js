@@ -26,11 +26,11 @@ render() {
             />
             <View style={styles.container}>
                 <Button style={styles.ins}>
-                    <Image style={styles.containerimg} source={require('../../pulic/icon.png')}/>
+                    <Image style={styles.containerimg} source={require('../../pulic/assets/image/icon.png')}/>
                     <Text style={styles.fontstyle}>เวลาเข้า</Text>
                 </Button>
                 <Button style={styles.ins} onPress={this.showScaleAnimationDialog}>
-                    <Image style={styles.containerimg} source={require('../../pulic/icon.png')}/>
+                    <Image style={styles.containerimg} source={require('../../pulic/assets/image/icon.png')}/>
                     <Text style={styles.fontstyle}>เวลาออก</Text>
                 </Button>
             </View>

@@ -11,7 +11,7 @@ export default class Logo extends Component {
         return(
             <View style={styles.container}>
                 <Image  style={{width:90, height: 90}}
-                        source={require('../../../../pulic/images/logo1.png')}/>
+                        source={require('../../../../pulic/assets/image/logo1.png')}/>
                 <Text style={styles.logoText}>{this.props.Title}</Text>
             </View>
         )

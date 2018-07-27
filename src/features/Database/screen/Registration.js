@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
-import Logo from '../components/Logo';
+import {View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native';
 import Form from './FormScreen/FormRegistration';
 
 export default class Registration extends Component {
@@ -13,7 +12,8 @@ export default class Registration extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Logo Title="Registration User"/>
+                <Image  style={{width:120, height: 120}}
+                        source={require('../../../../pulic/assets/image/user.png')}/>
                 <Form nameRegistration="Registration" />
                 <TouchableOpacity style={styles.button} onPress={this.GoTo_Show_StudentList_Activity_Function}>
                     <Text style={styles.buttonText} >ShowAllData</Text>

@@ -8,7 +8,6 @@ import RegistrationScreen from '../features/Database/screen/Registration';
 import LoingScreen from '../features/Database/screen/LoingScreen';
 import ShowListScreen from "../features/Database/screen/ShowStudentListActivity";
 import EditDataScreen from "../features/Database/screen/EditData";
-import FormScreen from "../features/Database/screen/FormScreen/Form";
 
   const stackNav = StackNavigator({
       LoingActivity : {
@@ -19,15 +18,7 @@ import FormScreen from "../features/Database/screen/FormScreen/Form";
                 backgroundColor:'#455a64'
             }
         }),
-    }, FormActivity: {
-          screen: FormScreen,
-          navigationOptions: ({navigation}) => ({
-              headerTitle: <HeaderTitle  text={'Details'} />,
-              headerStyle: {
-                  backgroundColor:'#455a64'
-              }
-          })
-      },
+    },
     RegistrationActivity: {
         screen:  RegistrationScreen,
         navigationOptions: ({navigation}) => ({

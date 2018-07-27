@@ -8,7 +8,7 @@ import StoreData from  './src/features/testCard';
 
 const drawernav = DrawerNavigator({
     Item1: {
-        screen: StoreData,
+        screen: stacknavv,
 
     }
 

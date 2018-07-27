@@ -22,8 +22,8 @@ export default class DeleteData extends Component {
         return (
             <View style={styles.container}>
                 <Logo  Title='Edit Data'/>
-                <FormUpdate GetInput_ID = {this.props.navigation.state.params.ID}/>
-                <FormEdit GetInput_ID = {this.props.navigation.state.params.ID} />
+                <FormUpdate GetInput_ID = {this.state.TextInput_ID}/>
+                <FormEdit GetInput_ID = {this.state.TextInput_ID} />
             </View>
         );
     }
