@@ -1,9 +1,9 @@
-import React from 'react';
 import { AppRegistry } from 'react-native';
-import App from './src/app';
+import {name as AppGugg} from './app.json';
+import App from './App';
 
 const ProjectEnd = () => <App />;
 
 export default ProjectEnd;
 
-AppRegistry.registerComponent('testAPI5', () => ProjectEnd);
+AppRegistry.registerComponent(AppGugg, () => ProjectEnd);
